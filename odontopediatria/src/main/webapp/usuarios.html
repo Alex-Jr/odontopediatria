@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Usuarios</title>
+</head>
+<body>
+	<form action="usuarios" method="POST">
+		<h1>Novo usuário</h1>
+		
+		<label for="nome">Nome</label>
+		<input type="text" name="nome">
+		<br><br>
+		
+		<label for="cpf">CPF</label>
+		<input type="text" name="cpf">
+		<br><br>
+		
+		<label for="genero">Genero</label>
+		<input type="radio" name="genero" value="M"/>Masculino
+		<input type="radio" name="genero" value="F"/>Feminino
+		<br><br>
+		
+		<button type="submit">CONFIRMAR</button>
+	</form>
+	
+	<h1>Lista de usuário</h1>
+	
+	<table>
+		<tr>
+			<td>
+				ID
+			</td>
+			<td>
+				Nome
+			</td>
+
+			<td>
+				CPF
+			</td>
+		</tr>
+		<tr>
+			<td>
+				1
+			</td>
+			<td>
+				USL
+			</td>
+			<td>
+				123.456.789-00
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>
