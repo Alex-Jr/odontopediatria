@@ -1,7 +1,9 @@
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import dao.PacienteDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,6 +30,13 @@ public class PacienteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		ArrayList<Paciente> lista = PacienteDao.list();
+	
+	    for (int i = 0; i < lista.size();i++) 
+	      { 		      
+	          System.out.println(lista.get(i).getNome()); 		
+	      }   
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -41,9 +50,9 @@ public class PacienteServlet extends HttpServlet {
 		String nomeResponsavel = request.getParameter("nome-resp");
 		String dataNasc = request.getParameter("data-nasc");
 		
-		Paciente p = new Paciente(nome, genero, nomeResponsavel, dataNasc);
+//		Paciente p = new Paciente(nome, genero, nomeResponsavel, dataNasc);
 		
-		System.out.println(p.getNome());
+//		System.out.println(p.getNome());
 		
 		response.sendRedirect(request.getContextPath() + "/home.html");
 		
