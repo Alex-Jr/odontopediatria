@@ -1,14 +1,14 @@
-package odontopediatria;
+package beans;
 
 import java.util.Date;
 
 public class Paciente {
 	
-	public Paciente(int id, String nome, String genero, Date dataNasc, String nomeResponsavel, String telefoneResponsavel) {
+	public Paciente(int id, String nome, String sexo, Date dataNasc, String nomeResponsavel, String telefoneResponsavel) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.genero = genero;
+		this.sexo = sexo;
 		this.dataNasc = dataNasc;
 		this.nomeResponsavel = nomeResponsavel;
 		this.telefoneResponsavel = telefoneResponsavel;
@@ -16,7 +16,7 @@ public class Paciente {
 
 	private int id;
 	private String nome;
-	private String genero;
+	private String sexo;
 	private Date dataNasc;
 	private String nomeResponsavel;
 	private String telefoneResponsavel;
@@ -33,11 +33,11 @@ public class Paciente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getGenero() {
-		return genero;
+	public String getSexo() {
+		return sexo;
 	}
-	public void setGenero(String genero) {
-		this.genero = genero;
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 	public Date getDataNasc() {
 		return dataNasc;

@@ -7,14 +7,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import beans.Paciente;
 import database.ConexaoMySQL;
-import odontopediatria.Paciente;
 
 public class PacienteDao {
 	private static Connection con = ConexaoMySQL.get();
 	
 	public static ArrayList<Paciente> list() {
-		System.out.println(con);
 		try {
 			String query = "select * from pacientes";
 			Statement st = con.createStatement();
@@ -24,12 +23,12 @@ public class PacienteDao {
 			while(rs.next()) {
 				int id = rs.getInt("id");
 				String nome = rs.getString("nome");
-				String genero = rs.getString("genero");
+				String sexo = rs.getString("sexo");
 				Date dataNasc = rs.getDate("dataNasc");
-				String nomeResponsavel = rs.getString("nomeResponsavel");
-				String telefoneResponsavel = rs.getString("telefoneResponsavel");
+				String nomeResponsavel = rs.getString("responsavel");
+				String telefoneResponsavel = rs.getString("telefone_responsavel");
 
-				lista.add(new Paciente(id, nome, genero, dataNasc, nomeResponsavel, telefoneResponsavel));
+				lista.add(new Paciente(id, nome, sexo, dataNasc, nomeResponsavel, telefoneResponsavel));
 			}	
 			
 			return lista;

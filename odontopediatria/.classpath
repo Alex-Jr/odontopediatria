@@ -13,7 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="/home/racky/Desktop/eclipse/mysql-connector-java-8.0.26/mysql-connector-java-8.0.26.jar"/>
+	<classpathentry kind="lib" path="/opt/tomcat/lib/mysql-connector-java-8.0.26.jar"/>
 	<classpathentry kind="lib" path="/opt/tomcat/lib/annotations-api.jar"/>
 	<classpathentry kind="lib" path="/opt/tomcat/lib/catalina.jar"/>
 	<classpathentry kind="lib" path="/opt/tomcat/lib/catalina-ant.jar"/>

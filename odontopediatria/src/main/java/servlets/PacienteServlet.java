@@ -1,25 +1,29 @@
+package servlets;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import beans.Paciente;
+import dao.PacienteDao;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import odontopediatria.Usuario;
 
 /**
- * Servlet implementation class usuarios
+ * Servlet implementation class PacienteServlet
  */
-@WebServlet("/usuarios")
-public class usuarios extends HttpServlet {
+@WebServlet("/pacientes")
+public class PacienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public usuarios() {
+    public PacienteServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -28,7 +32,12 @@ public class usuarios extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ArrayList<Paciente> pacientes = PacienteDao.list();
+		
+		request.setAttribute("pacientes", pacientes);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/pacientes/index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -37,28 +46,17 @@ public class usuarios extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String nome = request.getParameter("nome");
-		String cpf = request.getParameter("cpf");
 		String genero = request.getParameter("genero");
+		String nomeResponsavel = request.getParameter("nome-resp");
+		String dataNasc = request.getParameter("data-nasc");
 		
-		Usuario usuario = new Usuario(nome, cpf, genero);
+//		Paciente p = new Paciente(nome, genero, nomeResponsavel, dataNasc);
 		
-		System.out.printf("Usuario criado nome: %s; cpf: %s; genero: %s", usuario.getNome(), usuario.getCpf(), usuario.getGenero());
+//		System.out.println(p.getNome());
 		
-		doGet(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		response.sendRedirect(request.getContextPath() + "/home.html");
+		
+		
 	}
 
 }

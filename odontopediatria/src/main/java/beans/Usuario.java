@@ -1,4 +1,4 @@
-package odontopediatria;
+package beans;
 
 public class Usuario {
 	private static int qnt = 0;
