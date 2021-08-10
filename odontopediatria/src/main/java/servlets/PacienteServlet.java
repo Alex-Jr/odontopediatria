@@ -2,6 +2,9 @@ package servlets;
 
 
 import java.io.IOException;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import beans.Paciente;
@@ -46,17 +49,47 @@ public class PacienteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String nome = request.getParameter("nome");
-		String genero = request.getParameter("genero");
+		String sexo = request.getParameter("sexo");
 		String nomeResponsavel = request.getParameter("nome-resp");
-		String dataNasc = request.getParameter("data-nasc");
+		String telResponsavel = request.getParameter("tel-resp");
+
+		Date dataNasc = null;
+		try {
+			dataNasc = new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("data-nasc"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
-//		Paciente p = new Paciente(nome, genero, nomeResponsavel, dataNasc);
+		Paciente p = new Paciente(0, nome, sexo, dataNasc, nomeResponsavel, telResponsavel);
 		
+		PacienteDao.create(p);
 //		System.out.println(p.getNome());
 		
-		response.sendRedirect(request.getContextPath() + "/home.html");
-		
-		
+		response.sendRedirect(request.getContextPath() + "/views/pacientes/index.jsp");		
 	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String nome = request.getParameter("nome");
+		String sexo = request.getParameter("sexo");
+		String nomeResponsavel = request.getParameter("nome-resp");
+		String telResponsavel = request.getParameter("tel-resp");
 
+		Date dataNasc = null;
+		try {
+			dataNasc = new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("data-nasc"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		Paciente p = new Paciente(0, nome, sexo, dataNasc, nomeResponsavel, telResponsavel);
+		
+		PacienteDao.create(p);
+//		System.out.println(p.getNome());
+		
+		response.sendRedirect(request.getContextPath() + "/views/pacientes/index.jsp");		
+	}	
 }

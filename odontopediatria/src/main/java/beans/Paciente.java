@@ -14,6 +14,7 @@ public class Paciente {
 		this.telefoneResponsavel = telefoneResponsavel;
 	}
 
+
 	private int id;
 	private String nome;
 	private String sexo;

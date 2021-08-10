@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <button type="button" value="">Cadastrar Paciente</button>
+  <a href="./new.jsp"><button type="button" value="">Cadastrar Paciente</button></a>
   <h1>Lista de Pacientes</h1>
   
   <% ArrayList<Paciente> pacientes = PacienteDao.list(); %>
@@ -34,7 +34,6 @@
       <td> <%= p.getNomeResponsavel() %> </td>
       <td> <%= p.getTelefoneResponsavel() %> </td>
       <td>
-        <button type="button">Mais</button>
         <button type="button">Editar</button>
         <button type="button">Avaliar</button>
       </td>
