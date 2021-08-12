@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="/odontopediatria/js/formulario.js"> </script>
-<script src="/odontopediatria/js/update.js"> </script>
+<script src="/odontopediatria/js/pacientes/update.js"> </script>
 </head>
 <body>
 

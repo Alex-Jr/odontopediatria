@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/odontopediatria/js/delete.js"></script>
+<script src="/odontopediatria/js/pacientes/delete.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -36,7 +36,7 @@
       <td> <%= p.getTelefoneResponsavel() %> </td>
       <td>
         <a href="./update.jsp?id=<%=p.getId()%>"><button type="button">Editar</button></a>
-        <button type="button" onclick="deletar(this);">Deletar</button>
+        <button type="button" onclick="deletar(<%=p.getId()%>);">Deletar</button>
         <button type="button">Avaliar</button>
       </td>
     </tr>

@@ -9,6 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Medico</title>
+
+<script src="/odontopediatria/js/medicos/delete.js"></script>
+
 </head>
 <body>
   <a href="./new.jsp"><button type="button" value="">Cadastrar Médico</button></a>
@@ -29,9 +32,9 @@
       <td> <%= m.getNome() %></td>
       <td> <%= m.getCrm() %> </td>
       <td>
-        <button type="button">Editar</button>
+        <a href="./update.jsp?id=<%=m.getId()%>"><button type="button">Editar</button></a>
         <button type="button">Avaliar</button>
-        <button type="button">Excluir</button>
+        <button type="button" onclick="deletar(<%= m.getId() %>)">Excluir</button>
       </td>
     </tr>
     <% } %>

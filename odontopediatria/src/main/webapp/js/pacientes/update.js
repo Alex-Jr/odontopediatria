@@ -16,6 +16,8 @@ function update() {
 			}
 		}
  	};
+ 	
+ 	//id=1&nome=caio&datanasc=&
 
 	xhttp.open("PUT", `/odontopediatria/pacientes`, true);
 

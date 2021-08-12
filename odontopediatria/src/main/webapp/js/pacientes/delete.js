@@ -1,12 +1,6 @@
-function deletar(elemento) {
-	//if(!window.confirm("Tem certeza que deseja deletar?")) return;
+function deletar(id) {
+	if(!window.confirm("Tem certeza que deseja deletar?")) return;
 	
-	let pai = elemento.parentElement;
-	
-	let vo = pai.parentElement;
-	
-	let id = vo.firstElementChild.innerText;
-	console.log(id);
 	
 	const xhttp = new XMLHttpRequest();
 

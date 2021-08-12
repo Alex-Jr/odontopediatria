@@ -37,6 +37,28 @@ public class MedicoDao {
 		}
 	}
 	
+	public static Medico get(int id) {
+		try {
+			String query = "SELECT * FROM medicos WHERE id = ?";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, id);
+			
+			ResultSet rs = st.executeQuery();
+			
+			if(!rs.next()) return null;
+
+			String nome = rs.getString("nome");
+			String crm = rs.getString("crm");
+			
+			Medico m = new Medico(id, nome, crm);
+			return m;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void create(Medico m) {
 		try {
 			String query = "INSERT INTO medicos (nome, crm) values (?, ?)";
@@ -52,11 +74,32 @@ public class MedicoDao {
 		}
 	}
 	
+	public static void update(Medico m) {
+		try {
+			String query = "UPDATE medicos"
+					+ " SET nome = ?, crm = ?"
+					+ "WHERE id = ?";
+			
+			Medico old = MedicoDao.get(m.getId());
+
+			PreparedStatement st = con.prepareStatement(query);
+			st.setString(1, m.getNome() != null ? m.getNome() : old.getNome());
+			st.setString(2, m.getCrm() != null ? m.getCrm() : old.getCrm());
+			st.setInt(3, m.getId());
+			st.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+	}
+	
 	public static void delete(Medico m) {
 		try {
-			String query = "DELETE FROM medicos WHERE id=value(?)";
+			String query = "DELETE FROM medicos WHERE id= ?";
 			PreparedStatement st = con.prepareStatement(query);
 	
+			st.setInt(1, m.getId());
 			st.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

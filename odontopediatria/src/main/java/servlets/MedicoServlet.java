@@ -1,9 +1,12 @@
 package servlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import beans.Medico;
+import beans.Paciente;
 import dao.MedicoDao;
+import dao.PacienteDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -53,6 +56,25 @@ public class MedicoServlet extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		BufferedReader bfr  = request.getReader(); 
+				
+		//		ArrayList<String> params = new ArrayList<String>();
+		
+		String params[] = bfr.readLine().split("&");
+		
+		Medico m = new Medico();
+		for(int i = 0; i < params.length; i++) {	
+			String entry[] = params[i].split("=");
+
+			if(entry.length == 1) continue;
+			String key = entry[0];
+			String value = entry[1];
+			
+			if(key.equals("id")) m.setId(Integer.parseInt(value));
+			if(key.equals("nome")) m.setNome(value);
+			if(key.equals("crm")) m.setCrm(value);
+		}
+		MedicoDao.update(m);
 	}
 
 	/**
@@ -60,6 +82,22 @@ public class MedicoServlet extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		BufferedReader bfr  = request.getReader(); 
+		
+		//id=3
+		
+		String params = bfr.readLine();	
+		
+	
+		String entry[] = params.split("=");
+		
+		String key = entry[0];
+		String value = entry[1];
+		
+		Medico m = new Medico();
+		m.setId(Integer.parseInt(value));
+		
+		MedicoDao.delete(m);
 	}
 
 }

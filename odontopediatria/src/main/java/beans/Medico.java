@@ -10,6 +10,11 @@ public class Medico {
 	}
 
 
+	public Medico() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	private int id;
 	private String nome;
 	private String crm;
@@ -29,7 +34,7 @@ public class Medico {
 	public String getCrm() {
 		return crm;
 	}
-	public void setSexo(String crm) {
+	public void setCrm(String crm) {
 		this.crm = crm;
 	}
 }
