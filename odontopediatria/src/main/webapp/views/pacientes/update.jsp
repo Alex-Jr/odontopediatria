@@ -36,7 +36,7 @@
 		<input type="text" name="nomeResp" id="nome-resp" placeholder="<%=p.getNomeResponsavel()%>"/> <br>
 		
 		<label for="tel-resp">Telefone do responsável: </label>
-		<input type="text" name="telResp" id="tel-resp" placeholder="<%=p.getTelefoneResponsavel()%>"/> <br>
+		<input type="text" name="telResp" id="tel-resp" placeholder="<%=p.getTelefoneResponsavel()%>" maxLength="11"/> <br>
 
 		<button type="button" onclick="update()"> Confirmar </button>
 		<button type="button" onclick="resetar()"> Limpar </button>

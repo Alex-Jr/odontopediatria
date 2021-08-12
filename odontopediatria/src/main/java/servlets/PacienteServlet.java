@@ -102,6 +102,20 @@ public class PacienteServlet extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		BufferedReader bfr  = request.getReader(); 
+		
+		String params = bfr.readLine();	
+		
+		String entry[] = params.split("=");
+		
+		String key = entry[0];
+		String value = entry[1];
+		
+		Paciente p = new Paciente();
+		p.setId(Integer.parseInt(value));
+		
+		PacienteDao.delete(p);
+		
+		
 	}
 }

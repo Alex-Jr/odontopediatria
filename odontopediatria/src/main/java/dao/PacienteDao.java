@@ -105,4 +105,18 @@ public class PacienteDao {
 			return;
 		}
 	}
+	
+	public static void delete(Paciente p) {
+		try {
+			String query = "DELETE FROM pacientes WHERE id = ?";
+			
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, p.getId());
+			st.execute();
+			
+		} catch (SQLException e){
+			e.printStackTrace();
+			return;
+		}	
+	}
 }
