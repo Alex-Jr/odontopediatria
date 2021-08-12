@@ -57,4 +57,52 @@ public class PacienteDao {
 			return;
 		}
 	}
+	
+	public static Paciente get(int id) {
+		try {
+			String query = "SELECT * FROM pacientes WHERE id = ?";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, id);
+			
+			ResultSet rs = st.executeQuery();
+			
+			if(!rs.next()) return null;
+
+			String nome = rs.getString("nome");
+			String sexo = rs.getString("sexo");
+			Date dataNasc = rs.getDate("dataNasc");
+			String nomeResponsavel = rs.getString("responsavel");
+			String telefoneResponsavel = rs.getString("telefone_responsavel");
+			
+			Paciente p = new Paciente(id, nome, sexo, dataNasc, nomeResponsavel, telefoneResponsavel);
+			return p;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void update(Paciente p) {
+		try {
+			String query = "UPDATE pacientes"
+					+ " SET nome = ?, sexo = ?, dataNasc  = ?, responsavel = ?, telefone_responsavel = ?"
+					+ "WHERE id = ?";
+			
+			Paciente old = PacienteDao.get(p.getId());
+
+			PreparedStatement st = con.prepareStatement(query);
+			st.setString(1, p.getNome() != null ? p.getNome() : old.getNome());
+			st.setString(2, p.getSexo() != null ? p.getSexo() : old.getSexo());
+			st.setDate(3, p.getDataNasc() != null ? new java.sql.Date(p.getDataNasc().getTime()) : new java.sql.Date(old.getDataNasc().getTime()));
+			st.setString(4, p.getNomeResponsavel() != null ? p.getNomeResponsavel() : old.getNomeResponsavel());
+			st.setString(5, p.getTelefoneResponsavel() != null ? p.getTelefoneResponsavel() : old.getTelefoneResponsavel());
+			st.setInt(6, p.getId());
+			st.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+	}
 }

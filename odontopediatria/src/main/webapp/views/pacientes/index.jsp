@@ -34,7 +34,7 @@
       <td> <%= p.getNomeResponsavel() %> </td>
       <td> <%= p.getTelefoneResponsavel() %> </td>
       <td>
-        <button type="button">Editar</button>
+        <a href="./update.jsp?id=<%=p.getId()%>"><button type="button">Editar</button></a>
         <button type="button">Avaliar</button>
       </td>
     </tr>

@@ -1,5 +1,7 @@
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Paciente {
@@ -12,6 +14,10 @@ public class Paciente {
 		this.dataNasc = dataNasc;
 		this.nomeResponsavel = nomeResponsavel;
 		this.telefoneResponsavel = telefoneResponsavel;
+	}
+	
+	public Paciente() {
+		return;
 	}
 
 
@@ -45,6 +51,16 @@ public class Paciente {
 	}
 	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
+	}
+	public void setDataNasc(String dataNasc) {
+		Date date;
+		try {
+			date = new SimpleDateFormat("yyyy-mm-dd").parse(dataNasc);
+		} catch (ParseException e) {
+			date = new Date();
+		}
+
+		this.setDataNasc(date);
 	}
 	public String getNomeResponsavel() {
 		return nomeResponsavel;
