@@ -10,10 +10,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Histórico</title>
 </head>
 <body>
-<h1>Hist�rico de consultas</h1>
+<h1>Histórico de consultas</h1>
 <% int id = Integer.parseInt(request.getParameter("id")); %>
 <% ArrayList<Avaliacao> avaliacoes = AvaliacaoDao.list(id); %>
 
