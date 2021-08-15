@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="/odontopediatria/js/avatares/desenharAvatar.js"></script>
 <script src="/odontopediatria/js/avatares/new.js"></script>
 <title>Novo avatar</title>
 </head>

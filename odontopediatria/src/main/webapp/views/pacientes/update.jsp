@@ -1,3 +1,4 @@
+<%@page import="dao.AvatarDao"%>
 <%@page import="dao.PacienteDao"%>
 <%@page import="beans.Paciente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -40,6 +41,10 @@
 
 		<button type="button" onclick="update()"> Confirmar </button>
 		<button type="button" onclick="resetar()"> Limpar </button>
+		<br>
+		<a href="../avatares/new.jsp?idPaciente=<%=p.getId()%>"><button type="button" > Criar Avatar </button></a>
+		<br>
+		<a href="../avatares/update.jsp?idAvatar=<%=AvatarDao.getByPacienteId(p.getId()).getId()%>"><button type="button" > Editar Avatar </button></a>
 	</form>
 </body>
 </html>

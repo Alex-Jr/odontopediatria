@@ -46,7 +46,7 @@ public class AvatarDao {
 	
 	public static Avatar get(int id) {
 		try {
-			String query = "SELECT * FROM avatares WHERE id = ?;";
+			String query = "SELECT * FROM avatares WHERE id_avatar = ?;";
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, id);
 			
@@ -58,11 +58,48 @@ public class AvatarDao {
 
 			a.setId(rs.getInt("id_avatar"));
 			a.setCorPele(rs.getString("cor_da_pele"));
-			a.setOlho(rs.getString("olho"));
 			a.setCorOlho(rs.getString("cor_do_olho"));
-			a.setBoca(rs.getString("boca"));
-			a.setCabelo(rs.getString("cabelo"));
+			a.setBoca(rs.getInt("boca"));
+			a.setCabelo(rs.getInt("cabelo"));
+			a.setNariz(rs.getInt("nariz"));
+			a.setOlho(rs.getInt("olho"));
+			a.setOrelha(rs.getInt("orelha"));
+			a.setRosto(rs.getInt("rosto"));
 			a.setRoupa(rs.getInt("roupa"));
+			a.setSobrancelha(rs.getInt("sobrancelha"));
+			a.setPaciente(PacienteDao.get(rs.getInt("id_paciente")));
+
+			return a;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static Avatar getByPacienteId(int id) {
+		try {
+			String query = "SELECT * FROM avatares WHERE id_paciente = ?;";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, id);
+			
+			ResultSet rs = st.executeQuery();
+			
+			if(!rs.next()) return null;
+			
+			Avatar a = new Avatar();
+
+			a.setId(rs.getInt("id_avatar"));
+			a.setCorPele(rs.getString("cor_da_pele"));
+			a.setCorOlho(rs.getString("cor_do_olho"));
+			a.setBoca(rs.getInt("boca"));
+			a.setCabelo(rs.getInt("cabelo"));
+			a.setNariz(rs.getInt("nariz"));
+			a.setOlho(rs.getInt("olho"));
+			a.setOrelha(rs.getInt("orelha"));
+			a.setRosto(rs.getInt("rosto"));
+			a.setRoupa(rs.getInt("roupa"));
+			a.setSobrancelha(rs.getInt("sobrancelha"));
 			a.setPaciente(PacienteDao.get(rs.getInt("id_paciente")));
 
 			return a;

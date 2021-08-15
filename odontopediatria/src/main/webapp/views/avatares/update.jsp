@@ -1,35 +1,70 @@
-<%@page import="dao.MedicoDao"%>
-<%@page import="beans.Medico"%>
+<%@page import="beans.Avatar"%>
+<%@page import="dao.AvatarDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Editar Medico</title>
-<script src="/odontopediatria/js/formulario.js"> </script>
-<script src="/odontopediatria/js/medicos/update.js"> </script>
+<script src="/odontopediatria/js/avatares/desenharAvatar.js"></script>
+<script src="/odontopediatria/js/avatares/update.js"></script>
+
+
+<title>Editar avatar</title>
 </head>
 <body>
-
-	<h2>Editar - Médico</h2>
+	<h2>Editar - Avatar</h2>
+	
 	<% 
-		String id = request.getParameter("id");
-		Medico m = MedicoDao.get(Integer.parseInt(id));
+		String id = request.getParameter("idAvatar");
+		Avatar avatar = AvatarDao.get(Integer.parseInt(id));
 	%>
 	
-	<form action="/odontopediatria/medicos" id="formulario"> <!-- Method PUT with JS -->
-		<input hidden="true" type="text" name="id" value="<%=id%>"/>
-
-		<label for="nome"> Nome: </label>
-		<input type="text" name="nome" id="nome" placeholder="<%=m.getNome()%>"/> <br>
+	<div id="dados" data-cor-pele=<%=avatar.getCorPele() %>
+	data-cor-olho=<%=avatar.getCorOlho()%>
+	data-orelha=<%=avatar.getOrelha()%>
+	data-olho=<%=avatar.getOlho()%>
+	data-rosto=<%=avatar.getRosto()%>
+	data-sobrancelha=<%=avatar.getSobrancelha()%>
+	data-boca=<%=avatar.getBoca()%>
+	data-nariz=<%=avatar.getNariz()%>
+	data-roupa=<%=avatar.getRoupa()%>
+	data-cabelo=<%=avatar.getCabelo()%>></div>
+	
+	<div id="avatar" style="width:500px;height:500px;position:relative">
+	</div>
+	<!--  https://avatarmaker.com/ -->
+	<form action="/odontopediatria/avatares" method="POST">
+		<input hidden="true" name="idAvatar" value="<%=id%>" />		
 		
 		
-		<label for="tel-resp">Crm: </label>
-		<input type="text" name="crm" id="crm" placeholder="<%=m.getCrm()%>" maxLength="20"/> <br>
+		<label for="corPele"> Cor da pele </label>
+		<input type="color" name="corPele" id="corPele"/>
+		<br/><br/>
 
-		<button type="button" onclick="update()"> Confirmar </button>
-		<button type="button" onclick="resetar()"> Limpar </button>
+		<label for="corOlho"> Cor do olho </label>
+		<input type="color" name="corOlho" id="corOlho"/>
+		<br/><br/>
+		
+		<button type="button" onclick="update('rosto')">Trocar Rosto</button>
+		<button type="button" onclick="update('boca')">Trocar Boca</button>
+		<button type="button" onclick="update('nariz')">Trocar Nariz</button>
+		<button type="button" onclick="update('cabelo')">Trocar Cabelo</button>
+		<button type="button" onclick="update('olho')">Trocar Olho</button>
+		<button type="button" onclick="update('orelha')">Trocar Orelha</button>
+		<button type="button" onclick="update('sobrancelha')">Trocar Sobrancelha</button>
+		<button type="button" onclick="update('roupa')">Trocar Roupa</button>
+		
+		<input hidden=true id="rostoInput" name="rosto" value="1"/>
+		<input hidden=true id="bocaInput" name="boca" value="1"/>
+		<input hidden=true id="narizInput" name="nariz" value="1"/>
+		<input hidden=true id="cabeloInput" name="cabelo" value="1"/>
+		<input hidden=true id="olhoInput" name="olho" value="1"/>
+		<input hidden=true id="orelhaInput" name="orelha" value="1"/>
+		<input hidden=true id="sobrancelhaInput" name="sobrancelha" value="1"/>
+		<input hidden=true id="roupaInput" name="roupa" value="1"/>
+		
+		<button type="submit"> Salvar </button>
 	</form>
 </body>
 </html>
