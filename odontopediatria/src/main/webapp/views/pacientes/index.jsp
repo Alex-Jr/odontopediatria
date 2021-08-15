@@ -12,7 +12,7 @@
 <head>
 <script src="/odontopediatria/js/pacientes/delete.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 <body>
   <a href="./new.jsp"><button type="button" value="">Cadastrar Paciente</button></a>
