@@ -2,6 +2,7 @@
 <%@page import="beans.Avatar"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="dao.PacienteDao"%>
+
 <%@page import="beans.Paciente"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -50,7 +51,9 @@
 			 <a href="../avaliacoes/new.jsp?idPaciente=<%=p.getId()%>&idMedico=1"> <button type="button">Avaliar</button> </a>
 		<%
 			}
-		%>		
+		%>	
+
+		<a href="./history.jsp?id=<%=p.getId()%>"><button type="button"> Histórico</button></a> 
        
       </td>
     </tr>

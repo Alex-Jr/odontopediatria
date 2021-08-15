@@ -3,7 +3,15 @@ package dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import beans.Paciente;
+import beans.Medico;
+
+import dao.PacienteDao;
+import dao.MedicoDao;
 
 import beans.Avaliacao;
 import database.ConexaoMySQL;
@@ -29,6 +37,37 @@ public class AvaliacaoDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;
+		}
+	}
+	
+	public static ArrayList<Avaliacao> list(int id){
+		try {
+			String query = "SELECT * FROM Avaliacoes WHERE PacienteID = ?";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, id);
+			
+			ResultSet rs = st.executeQuery();
+			
+			ArrayList<Avaliacao> lista = new ArrayList<Avaliacao>(); 
+			
+			while(rs.next()) {
+				int idAvaliacao = rs.getInt("id");
+				int pacienteId = rs.getInt("PacienteID");
+				int medicoId = rs.getInt("MedicoID");
+				String expressoes = rs.getString("expressoes");
+				Date data = rs.getDate("data");
+				int ansiedade = rs.getInt("ansiedade");
+				
+				Paciente paciente = PacienteDao.get(pacienteId);
+				Medico medico = MedicoDao.get(medicoId);
+				
+				lista.add(new Avaliacao(idAvaliacao, paciente, medico, expressoes, data, ansiedade));
+			}
+			
+			return lista;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

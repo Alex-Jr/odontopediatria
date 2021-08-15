@@ -1,16 +1,37 @@
 package beans;
 
+import java.util.Date;
+
 public class Avaliacao {
 	private int id;
 	private int ansiedade;
 	private String expressoes;
 	private Paciente paciente;
 	private Medico medico;
+	public Date data;
+	
+	public Avaliacao(int id, Paciente paciente, Medico medico, String expressoes, Date data, int ansiedade) {
+		super();
+		this.id = id;
+		this.paciente = paciente;
+		this.medico = medico;
+		this.expressoes = expressoes;
+		this.data = data;
+		this.ansiedade = ansiedade;
+	}
 	
 	public Avaliacao() {
 		return;
 	}
-
+	
+	public void setData(Date d) {
+		this.data = d;
+	}
+	
+	public Date getData() {
+		return this.data;
+	}
+	
 	public void setId(String id) {
 		this.id = Integer.parseInt(id);
 	}
