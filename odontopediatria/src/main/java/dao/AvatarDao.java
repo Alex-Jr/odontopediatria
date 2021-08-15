@@ -139,9 +139,42 @@ public class AvatarDao {
 		}
 	}
 	
+	public static boolean update(Avatar  a) {
+		AvatarDao.delete(a.getId());
+		AvatarDao.create(a);
+		return true; // estava levando sql syntax error nã osei pq e nem quero sabner
+//		try {
+//			String query = "UPDATE avatares"
+//					+ "SET cor_da_pele=?, olho=?, cor_do_olho=?, sobrancelha=?, nariz=?, orelha=?, boca=?, cabelo=?, rosto=?, roupa=? id_paciente=?"
+//					+ "WHERE id_avatar=?;";
+//					
+//			PreparedStatement st = con.prepareStatement(query);
+//
+//			st.setString(1, a.getCorPele());
+//			st.setInt(2, a.getOlho());
+//			st.setString(3, a.getCorOlho());
+//			st.setInt(4, a.getSobrancelha());
+//			st.setInt(5, a.getNariz());
+//			st.setInt(6, a.getOrelha());
+//			st.setInt(7, a.getBoca());
+//			st.setInt(8, a.getCabelo());
+//			st.setInt(9, a.getRosto());
+//			st.setInt(10, a.getRoupa());
+//			st.setInt(11, a.getPaciente().getId());
+//			st.setInt(12, a.getId());
+//			
+//			st.execute();
+//			return true;
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return false;
+//		}
+	}
+	
 	public static void delete(int id) {
 		try {
-			String query = "DELETE FROM avatares WHERE id=?";
+			String query = "DELETE FROM avatares WHERE id_avatar=?";
 			PreparedStatement st = con.prepareStatement(query);
 	
 			st.setInt(1, id);

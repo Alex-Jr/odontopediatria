@@ -1,3 +1,5 @@
+<%@page import="beans.Paciente"%>
+<%@page import="dao.PacienteDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,6 +15,7 @@
 	
 	<% 
 		String id = request.getParameter("idPaciente");
+		Paciente p = PacienteDao.get(Integer.parseInt(id));
 	%>
 	<div id="avatar" style="width:500px;height:500px;position:relative">
 	</div>
@@ -47,6 +50,7 @@
 		<input hidden=true id="orelhaInput" name="orelha" value="1"/>
 		<input hidden=true id="sobrancelhaInput" name="sobrancelha" value="1"/>
 		<input hidden=true id="roupaInput" name="roupa" value="1"/>
+		<div id="genero" data-genero= "<%=p.getSexo().toLowerCase()%>"/>
 		
 		<button type="submit"> Salvar </button>
 	</form>

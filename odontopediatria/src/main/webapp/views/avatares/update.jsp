@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <script src="/odontopediatria/js/avatares/desenharAvatar.js"></script>
 <script src="/odontopediatria/js/avatares/update.js"></script>
-
+<script src="/odontopediatria/js/formulario.js"></script>
 
 <title>Editar avatar</title>
 </head>
@@ -20,21 +20,27 @@
 		Avatar avatar = AvatarDao.get(Integer.parseInt(id));
 	%>
 	
-	<div id="dados" data-cor-pele=<%=avatar.getCorPele() %>
-	data-cor-olho=<%=avatar.getCorOlho()%>
-	data-orelha=<%=avatar.getOrelha()%>
-	data-olho=<%=avatar.getOlho()%>
-	data-rosto=<%=avatar.getRosto()%>
-	data-sobrancelha=<%=avatar.getSobrancelha()%>
-	data-boca=<%=avatar.getBoca()%>
-	data-nariz=<%=avatar.getNariz()%>
-	data-roupa=<%=avatar.getRoupa()%>
-	data-cabelo=<%=avatar.getCabelo()%>></div>
+	<div 
+		id="dados" 
+		data-id-avatar=<%=avatar.getId() %>
+		data-cor-pele=<%=avatar.getCorPele() %>
+		data-cor-olho=<%=avatar.getCorOlho()%>
+		data-orelha=<%=avatar.getOrelha()%>
+		data-olho=<%=avatar.getOlho()%>
+		data-rosto=<%=avatar.getRosto()%>
+		data-sobrancelha=<%=avatar.getSobrancelha()%>
+		data-boca=<%=avatar.getBoca()%>
+		data-nariz=<%=avatar.getNariz()%>
+		data-roupa=<%=avatar.getRoupa()%>
+		data-cabelo=<%=avatar.getCabelo()%>
+		data-id-paciente=<%=avatar.getPaciente().getId() %>
+	>
+	</div>
 	
 	<div id="avatar" style="width:500px;height:500px;position:relative">
 	</div>
 	<!--  https://avatarmaker.com/ -->
-	<form action="/odontopediatria/avatares" method="POST">
+	<form action="/odontopediatria/avatares" id="formulario">
 		<input hidden="true" name="idAvatar" value="<%=id%>" />		
 		
 		
@@ -64,7 +70,7 @@
 		<input hidden=true id="sobrancelhaInput" name="sobrancelha" value="1"/>
 		<input hidden=true id="roupaInput" name="roupa" value="1"/>
 		
-		<button type="submit"> Salvar </button>
+		<button type="button" onclick="salvar()"> Salvar </button>
 	</form>
 </body>
 </html>

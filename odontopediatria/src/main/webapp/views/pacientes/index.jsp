@@ -1,3 +1,5 @@
+<%@page import="dao.AvatarDao"%>
+<%@page import="beans.Avatar"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="dao.PacienteDao"%>
 <%@page import="beans.Paciente"%>
@@ -37,7 +39,19 @@
       <td>
         <a href="./update.jsp?id=<%=p.getId()%>"><button type="button">Editar</button></a>
         <button type="button" onclick="deletar(<%=p.getId()%>);">Deletar</button>
-        <button type="button">Avaliar</button>
+        <% 
+			Avatar a = AvatarDao.getByPacienteId(p.getId());
+			if(a == null) {
+		%>
+		 	<a href="../avatares/new.jsp?idPaciente=<%=p.getId()%>"> <button type="button">Avaliar</button> </a>
+		<%
+			} else {
+		%>
+			 <a href="../avaliacoes/new.jsp?idPaciente=<%=p.getId()%>&idMedico=1"> <button type="button">Avaliar</button> </a>
+		<%
+			}
+		%>		
+       
       </td>
     </tr>
     <% } %>

@@ -1,4 +1,4 @@
-const parteInfos = {
+	const parteInfos = {
 	orelha: {
 		tamanho: { w: 80, h: 80 },
 		posicao: { x: 110, y: 130, distance: 140 },
@@ -37,23 +37,19 @@ const parteInfos = {
 	}
 }
 
-const cores = {
-	pele: "",
-	olho: "",
-}
+let partesId;
 
 const max = { // isso poderia ser dinamico, mas pelo como é mvp está hardcoded
 	orelha: 2,
 	rosto: 2,
-	olho: 2,
-	sobrancelha: 2,
-	boca: 2,
+	olho: 4,
+	sobrancelha: 5,
+	boca: 6,
 	nariz: 2,
 	roupa: 2,
-	cabelo: 2,
+	cabelo: 3,
 	pescoco: 1,
 }
-
 
 // a ordem do array ira determinar a posição Z dos svg
 	const partes = [
@@ -68,6 +64,8 @@ const max = { // isso poderia ser dinamico, mas pelo como é mvp está hardcoded
 		"nariz",
 	]
 
+let first = true;
+
 function desenha({ width, height, data, className, top, left, index, distance = 0, mirrow , target}) {
 			const imgElement = document.createElement('object')
 			imgElement.type = "image/svg+xml"
@@ -79,6 +77,7 @@ function desenha({ width, height, data, className, top, left, index, distance = 
 			imgElement.style.top = `${top}px`;
 			imgElement.style.left = `${left + distance/2}px`;	
 			imgElement.style.zIndex = index;
+			imgElement.style.pointerEvents = "none"; 
 			if(mirrow) {
 				imgElement.style.transform = "scaleX(-1)"
 			}
@@ -102,11 +101,11 @@ function desenha({ width, height, data, className, top, left, index, distance = 
 	}
 	
 	
-function desenharAvatar(partesId, element){
+function desenharAvatar(received, element){
+	partesId = received;
+
 	partes.forEach((parte, index) => {
-	
-		console.log(partesId[parte])
-	
+		
 		const {
 			tamanho: {
 				w: width,
@@ -122,7 +121,7 @@ function desenharAvatar(partesId, element){
 		desenha({
 			width,
 			height,
-			data: `/odontopediatria/avatar/${parte}/${partesId[parte]}.svg` ,
+			data: `/odontopediatria/avatar/${partesId.genero}/${parte}/${partesId[parte]}.svg` ,
 			className: parte,
 			top: eixoY,
 			left: eixoX,
@@ -132,15 +131,26 @@ function desenharAvatar(partesId, element){
 		})
 	})
 	
-
-
+	if(first) {
+		setTimeout(() => { mudaCorOlho({ target: { value: partesId.corOlho }}); first = false; }, 750 );
+	} 	
 }
+
+function mudaCorOlho(event) {
+	const olhos = document.getElementsByClassName('olho');	 
+	console.log('a')
+		
+		for(olho of olhos){
+			const svg = olho.getSVGDocument();
+			svg.querySelectorAll("path")[1].setAttribute("fill", event.target.value)
+		}
+}
+
 
 function update(type) {
 	const elements = document.getElementsByClassName(type);
 	const input = document.getElementById(`${type}Input`);
-
-	
+		
 	for(let i = 0; i < elements.length; i = i + 1) {
 		el = elements[i];
 		let next = atual[type] + 1 - i;
@@ -151,8 +161,14 @@ function update(type) {
 		
 		atual[type] = next
 	
-		el.data = `/odontopediatria/avatar/${type}/${next}.svg`;
+		el.data = `/odontopediatria/avatar/${partesId.genero}/${type}/${next}.svg`;
+	}
+	
+	if(input) {	
+		input.value = atual[type];
 	}
 
-	input.value = atual[type];
+	if(type === "olho") {
+		setTimeout(() => { mudaCorOlho({ target: { value: partesId.corOlho }}); first = false; }, 100 );
+	}
 }

@@ -1,0 +1,23 @@
+<svg id="svga-svgcanvas" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="avatar-elements__svg" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin meet">
+  <defs id="SvgjsDefs3079">
+    <linearGradient id="SvgjsLinearGradient3136" x1="99.98" y1="171.27" x2="99.98" y2="136.351" gradientUnits="userSpaceOnUse" class="svga-on-canvas-chinshadow-gradient-single-0">
+      <stop id="SvgjsStop3137" stop-opacity="0.8" stop-color="#e4b3ab" offset="0" data-stoptype="sd1"/>
+      <stop id="SvgjsStop3138" stop-opacity="1" stop-color="#c5796d" offset="0.7" data-stoptype="sd3"/>
+    </linearGradient> 
+  </defs>
+  <g id="svga-group-wrapper">
+    <g id="svga-group-humanwrap-move" transform="matrix(1,0,0,1,0,0)">
+      <g id="svga-group-humanwrap" transform="matrix(1,0,0,1,0,0)">
+        <g id="svga-group-humanbody-single">
+          <path id="SvgjsPath3147" d="M190.858 199.866c-6.008-10.158-13.474-11.973-19.628-13.936 -6.323-2.016-19.346-3.178-26.449-4.6 -6.86-1.373-23.153-5.789-23.339-13.488 -0.192-8.066 4.291-40.09 4.291-40.09H74.005c0 0 4.487 32.023 4.294 40.09 -0.184 7.699-16.48 12.115-23.341 13.488 -7.104 1.422-20.125 2.584-26.448 4.6 -6.156 1.963-13.624 3.777-19.632 13.936 -3.644 6.16-6.008 16.133-6.008 27.133h194C196.869 215.999 194.509 206.026 190.858 199.866z" data-colored="true" data-fillType="tone" data-strokeType="none" data-fromskin="true" fill="#f3d4cf" stroke-width="none" opacity="1"/>
+          <path id="SvgjsPath3148" d="M121.442 167.843c2.495 10.929 18.165 13.698 26.293 15.325 21.909 4.379 33.772 5.134 42.297 19.539 2.903 4.916 5.459 15.864 5.962 24.153 1.835 0.291 0.531-17.432-5.136-26.994 -9.742-16.472-29.089-15.135-46.077-18.535C137.921 179.958 121.628 175.542 121.442 167.843L121.442 167.843zM78.558 167.843c-0.186 7.699-16.479 12.115-23.339 13.488 -16.988 3.4-36.335 2.063-46.077 18.535 -5.667 9.563-6.971 27.285-5.136 26.994 0.503-8.289 3.059-19.237 5.962-24.153 8.524-14.405 20.388-15.16 42.297-19.539C60.393 181.541 76.063 178.771 78.558 167.843L78.558 167.843z" data-colored="true" data-fillType="hl1" data-strokeType="none" data-fromskin="true" fill="#fff4f3" stroke-width="none" opacity="1"/>
+          <path id="SvgjsPath3149" d="M51.206 189.513c0 0 28.641 0.299 33.473 1.885 2.314 0.758 8.372 5.633 8.372 5.633s-6.556-3.17-8.658-3.758C79.51 191.909 51.206 189.513 51.206 189.513zM99.795 199.999c2.053-0.041 7.887-3.799 7.887-3.799s-5.574 2.059-7.342 2.16c-1.491 0.086-6.366-1.238-6.366-1.238S98.112 200.032 99.795 199.999zM117.008 192.757c6.75-1.818 29.786-3.23 29.786-3.23s-23.791-0.516-30.51 1.725c-2.252 0.752-7.562 5.16-7.562 5.16S114.786 193.354 117.008 192.757z" data-colored="true" data-fillType="sd1" data-strokeType="none" data-fromskin="true" fill="#e4b3ab" stroke-width="none" opacity="1"/>
+          <path id="SvgjsPath3150" d="M190.858 199.866c-9.741-16.471-29.122-15.142-46.077-18.535 -6.86-1.373-23.153-5.789-23.339-13.488 -0.192-8.066 4.291-40.09 4.291-40.09H74.005c0 0 4.487 32.023 4.294 40.09 -0.184 7.699-16.48 12.115-23.341 13.488 -7.104 1.422-20.125 2.584-26.448 4.6 -6.156 1.963-13.624 3.777-19.632 13.936 -3.644 6.16-6.008 16.133-6.008 27.133h194C196.869 215.999 194.509 206.026 190.858 199.866z" data-colored="true" data-fillType="none" data-strokeType="sd3" data-fromskin="true" fill="none" stroke="#c5796d" stroke-width="1.5" opacity="1"/>
+        </g>
+        <g id="svga-group-chinshadow-single">
+          <path id="SvgjsPath3135" d="M100.021 171.27c5.607-0.009 13.53-3.627 20.967-8.478 0.485-6.84 1.756-17.341 2.758-25.098 -13.972-1.825-33.828-1.785-47.741 0.101 0.995 7.702 2.249 18.065 2.739 24.877C86.278 167.593 94.344 171.279 100.021 171.27z" data-colored="false" data-fillType="gradient" data-strokeType="none" data-fromskin="true" fill="url(#SvgjsLinearGradient3136)" opacity="1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

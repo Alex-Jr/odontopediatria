@@ -5,13 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/odontopediatria/js/teste.js"> </script>
 </head>
 <body>
 
 	<h2>Cadastro - Paciente</h2>
 	
-	<form action="/odontopediatria/pacientes" method="POST">
+	<form action="/odontopediatria/pacientes" method="POST" id="cadastro">
 		<label for="nome"> Nome: </label>
 		<input type="text" name="nome" id="nome" required/> <br>
 		

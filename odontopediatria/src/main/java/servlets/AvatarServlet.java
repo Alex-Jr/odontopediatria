@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 import beans.Avatar;
+import beans.Paciente;
 import dao.AvatarDao;
 import dao.PacienteDao;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -77,18 +77,26 @@ public class AvatarServlet extends HttpServlet {
 			String key = entry[0];
 			String value = entry[1];
 			
-			if(key.equals("id")) a.setId(Integer.parseInt(value));
+			if(key.equals("idAvatar")) a.setId(value);
 			if(key.equals("corPele")) a.setCorPele(value);
 			if(key.equals("olho")) a.setOlho(value);
 			if(key.equals("corOlho")) a.setCorOlho(value);
 			if(key.equals("boca")) a.setBoca(value);
 			if(key.equals("cabelo")) a.setCabelo(value);
+			if(key.equals("nariz")) a.setNariz(value);
+			if(key.equals("orelha")) a.setOrelha(value);
+			if(key.equals("rosto")) a.setRosto(value);
+			if(key.equals("sobrancelha")) a.setSobrancelha(value);
 			if(key.equals("roupa")) a.setRoupa(Integer.parseInt(value));
+			if(key.equals("idPaciente")) {
+				Paciente p = new Paciente();
+				p.setId(Integer.parseInt(value));
+				a.setPaciente(p);
+			}
 			// coloquei pq é interessante fazer a verificação avatar x paciente 
-			if(key.equals("idPaciente")) a.setPaciente(PacienteDao.get(Integer.parseInt(value))); 
 		}
 
-//		AvatarDao.update(a);
+		AvatarDao.update(a);
 	}
 
 	/**
