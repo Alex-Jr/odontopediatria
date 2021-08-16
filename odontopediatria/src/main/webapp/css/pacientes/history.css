@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+    margin: 30px;
+    color: #ffffff; 
+}
+
+table, th, td{
+    background: #ffffff;
+    margin: auto;
+    border: 1px solid black;
+    width: 40%;
+    font-size: 24px;
+}

@@ -10,34 +10,39 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>HistÃ³rico</title>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/pacientes/history.css"/>
+<title>Histórico</title>
 </head>
-<body>
-<h1>HistÃ³rico de consultas</h1>
-<% int id = Integer.parseInt(request.getParameter("id")); %>
-<% ArrayList<Avaliacao> avaliacoes = AvaliacaoDao.list(id); %>
+<body class="letras">
+	<% int id = Integer.parseInt(request.getParameter("id")); %>
+	<% ArrayList<Avaliacao> avaliacoes = AvaliacaoDao.list(id); %>
+	
 
-<%for(int i =0; i < avaliacoes.size(); i++) { %>
 
-<% Avaliacao av = avaliacoes.get(i);%>
-<table>
-    <tr>
-      <td> ID </td>
-      <td> Data </td>
-      <td> Medico </td>
-      <td> Paciente </td>
-      <td> Ansiedade </td>
-       
-    </tr>
-	<tr>
+  <div class="header"> Sorriso do amanhã </div>  
+  <h1>Histórico de avaliações</h1>
+
+  <table id="tabela">
+      <tr>
+        <td> ID </td>
+        <td> Data </td>
+        <td> Medico </td>
+        <td> Paciente </td>
+        <td> Ansiedade </td>
+        
+      </tr>
+    <%if(avaliacoes != null) for(int i =0; i < avaliacoes.size(); i++) { %>
+    <% Avaliacao av = avaliacoes.get(i);%>
+		<tr>
 		<td> <%= av.getId() %> </td>
-		<td> <%= av.getData() %> </td>
-		<td> <%= av.getMedico().getNome() %> </td>
-		<td> <%= av.getPaciente().getNome() %> </td>
-		<td> <%= av.getAnsiedade() %> </td>
-	</tr>
-</table>
-<% } %>
+			<td> <%= av.getData() %> </td>
+			<td> <%= av.getMedico().getNome() %> </td>
+			<td> <%= av.getPaciente().getNome() %> </td>
+			<td> <%= av.getAnsiedade() %> </td>
+		</tr>
+	<% } %>
+  </table>
 
 </body>
 </html>

@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+	background: rgb(97,89,224);
+	background: linear-gradient(90deg, rgba(97,89,224,1) 0%, rgba(113,9,121,1) 48%, rgba(147,25,142,1) 72%);
+}
+
+.header{
+	background: #000000;
+	opacity: 0.7;
+	padding-top: 10px;
+	padding-left: 10px;
+	height: 50px;
+	color: #fff;
+	font-size: 36px;
+}
+
+.botaopadrao {
+    background-color: #8902AB;
+    border: none;
+    color: #ffff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

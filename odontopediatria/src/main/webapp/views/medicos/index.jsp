@@ -11,14 +11,17 @@
 <title>Medico</title>
 
 <script src="/odontopediatria/js/medicos/delete.js"></script>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/medicos/index.css"/>
 
 </head>
 <body>
-  <a href="./new.jsp"><button type="button" value="">Cadastrar Médico</button></a>
-  <h1>Lista de Médicos</h1>
-  
-  <% ArrayList<Medico> medicos = MedicoDao.list(); %>
-  <table>
+ 	<% ArrayList<Medico> medicos = MedicoDao.list(); %>
+	<div class="container">
+
+    <a href="./new.jsp"><button type="button" value="">Cadastrar Médico</button></a>
+    <h1>Lista de Médicos:</h1>
+    <table>
     <tr>
       <td> ID </td>
       <td> Nome </td>
@@ -37,7 +40,8 @@
         <button type="button" onclick="deletar(<%= m.getId() %>)">Excluir</button>
       </td>
     </tr>
-    <% } %>
-  </table>
+    <% } %>   
+  	</table>
+  	</div>
 </body>
 </html>

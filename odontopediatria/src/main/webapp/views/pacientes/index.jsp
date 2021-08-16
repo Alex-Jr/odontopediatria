@@ -11,14 +11,18 @@
 <html>
 <head>
 <script src="/odontopediatria/js/pacientes/delete.js"></script>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/pacientes/index.css"/>
 <meta charset="UTF-8">
 <title>Home</title>
 </head>
 <body>
+ <% ArrayList<Paciente> pacientes = PacienteDao.list(); %>
+ 
+<div class="container">
   <a href="./new.jsp"><button type="button" value="">Cadastrar Paciente</button></a>
   <h1>Lista de Pacientes</h1>
   
-  <% ArrayList<Paciente> pacientes = PacienteDao.list(); %>
   <table>
     <tr>
       <td> ID </td>
@@ -29,6 +33,7 @@
       <td> Ações </td> 
     </tr>
     
+  
     <% for(int i = 0; i < pacientes.size(); i++ ) { %>
     <% Paciente p = pacientes.get(i); %>
     <tr>
@@ -58,6 +63,8 @@
       </td>
     </tr>
     <% } %>
+
   </table>
+</div>
 </body>
 </html>

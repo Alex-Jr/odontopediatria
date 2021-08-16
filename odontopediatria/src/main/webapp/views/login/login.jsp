@@ -5,21 +5,28 @@
 <head>
 <script src="/odontopediatria/js/formulario.js"></script>
 <script src="/odontopediatria/js/login/login.js"></script>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/login/login.css"/>
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
 <body>
-	<form id="formulario">
-		<label for="login">CRM</label>
-		<input type="text" name="login"/>
-		<br>
-		
-		<label for="senha">Senha</label>
-		<input type="text" name="senha"/>
-		<br>
+ 	<div class="header">Clínica sorriso do amanhã</div>
+ 	
+	 <form id="formulario" class="container">
 
-		<button type="button" onclick="entrar('medicos')"> ENTRAR MEDICOS </button>
-		<button type="button" onclick="entrar('pacientes')"> ENTRAR PACIENTES</button>
-	</form>
+        <h1>Login</h1>
+        <label for="login">CRM</label>
+        <input type="text" name="login" class="input"/>
+        <br/>
+        
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" class="input"/>
+        <br>
+        <div class="botoes">
+            <button type="button" onclick="entrar('medicos')"> ENTRAR MEDICOS </button>
+            <button type="button" onclick="entrar('pacientes')"> ENTRAR PACIENTES</button>
+        </div>
+    </form>
 </body>
 </html>

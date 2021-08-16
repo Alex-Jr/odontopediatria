@@ -5,19 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Cadastrar medico</title>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/medicos/new.css"/>
 </head>
 <body>
 
-	<h2>Cadastro - Medico</h2>
+	<div class="header">Cadastro - Medico</div>
 	
+
+	<div class="container">
+		
 	<form action="/odontopediatria/medicos" method="POST">
+		<h1>Cadastro - Médicos </h1>
 		<label for="nome"> Nome: </label>
 		<input type="text" name="nome" id="nome"/> <br>
 			
-		<label for="crm">Crm: </label>
+		<label for="crm">Crm : </label>
 		<input type="text" name="crm" id="crm"/> <br>
 		
 		<input type="submit"/>
 	</form>
+	</div>
 </body>
 </html>

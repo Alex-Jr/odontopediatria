@@ -13,6 +13,7 @@ const atual = {
 	corOlho: "#000000",
 	idAvatar: 0,
 	idPaciente: 0,
+	genero: 'm'
 }
 
 
@@ -33,8 +34,8 @@ window.addEventListener('load', function () {
 	atual.corOlho = dados.dataset.corOlho;
 	atual.idAvatar = dados.dataset.idAvatar;
 	atual.idPaciente = dados.dataset.idPaciente;
-	
-	console.log(atual)
+	atual.genero = dados.dataset.genero;
+
 	
 	const element = document.getElementById('avatar');
 	

@@ -9,12 +9,13 @@
 <script src="/odontopediatria/js/avatares/desenharAvatar.js"></script>
 <script src="/odontopediatria/js/avatares/update.js"></script>
 <script src="/odontopediatria/js/formulario.js"></script>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/avatares/update.css"/>
 
 <title>Editar avatar</title>
 </head>
 <body>
-	<h2>Editar - Avatar</h2>
-	
+		<div class="header">Clínica Sorriso do amanhã</div>
 	<% 
 		String id = request.getParameter("idAvatar");
 		Avatar avatar = AvatarDao.get(Integer.parseInt(id));
@@ -34,15 +35,21 @@
 		data-roupa=<%=avatar.getRoupa()%>
 		data-cabelo=<%=avatar.getCabelo()%>
 		data-id-paciente=<%=avatar.getPaciente().getId() %>
+		data-genero=<%=avatar.getPaciente().getSexo().toLowerCase() %>
 	>
 	</div>
 	
+	<div class="container">
+	<h2>Editar - Avatar</h2>
+	<!--  https://avatarmaker.com/ -->
+		
 	<div id="avatar" style="width:500px;height:500px;position:relative">
 	</div>
-	<!--  https://avatarmaker.com/ -->
+	
 	<form action="/odontopediatria/avatares" id="formulario">
 		<input hidden="true" name="idAvatar" value="<%=id%>" />		
 		
+		<div class="botoes">
 		
 		<label for="corPele"> Cor da pele </label>
 		<input type="color" name="corPele" id="corPele"/>
@@ -60,6 +67,7 @@
 		<button type="button" onclick="update('orelha')">Trocar Orelha</button>
 		<button type="button" onclick="update('sobrancelha')">Trocar Sobrancelha</button>
 		<button type="button" onclick="update('roupa')">Trocar Roupa</button>
+		</div>
 		
 		<input hidden=true id="rostoInput" name="rosto" value="1"/>
 		<input hidden=true id="bocaInput" name="boca" value="1"/>
@@ -72,5 +80,6 @@
 		
 		<button type="button" onclick="salvar()"> Salvar </button>
 	</form>
+	</div>
 </body>
 </html>
