@@ -24,8 +24,8 @@
         <input type="password" name="senha" class="input"/>
         <br>
         <div class="botoes">
-            <button type="button" onclick="entrar('medicos')"> ENTRAR MEDICOS </button>
-            <button type="button" onclick="entrar('pacientes')"> ENTRAR PACIENTES</button>
+            <button type="button" onclick="entrar('medicos')"> ENTRAR COMO ADMIN </button>
+            <button type="button" onclick="entrar('pacientes')"> ENTRAR COMO MEDICO</button>
         </div>
     </form>
 </body>

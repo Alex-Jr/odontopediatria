@@ -3,6 +3,7 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.SQLNonTransientConnectionException;
 
 public class ConexaoMySQL {
 	private static Connection con;
@@ -15,11 +16,11 @@ public class ConexaoMySQL {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			String host = "localhost";
-			String database = "odontopediatria";
+			String host = "us-cdbr-east-04.cleardb.com";
+			String database = "heroku_076c0b1756bad35";
 			String port = "3306";
-			String user = "odontopediatria";
-			String password = "password";
+			String user = "b34f340722ec0b";
+			String password = "3835ed25";
 		    String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
 		    
 			con = DriverManager.getConnection(url, user, password);
@@ -29,10 +30,12 @@ public class ConexaoMySQL {
 			System.out.println("Driver MySQL não encontrado");
 			
 			return null;
+		} catch(SQLNonTransientConnectionException e) {
+			con = null;
+			return ConexaoMySQL.get();
 		} catch (SQLException e) {
 			System.out.println("Erro ao conectar");
 			e.printStackTrace();
-			
 			return null;
 		}
 	}

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import beans.Avatar;
 import beans.Medico;
 import beans.Usuario;
 import database.ConexaoMySQL;
@@ -45,6 +46,28 @@ public class UsuarioDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public static boolean create(Usuario  u) {
+		try {
+			String query = "INSERT INTO usuarios"
+					+ "(login, senha, tipo, id_medico)"
+					+ "VALUES(?, ?, ?, ?);";
+					
+			PreparedStatement st = con.prepareStatement(query);
+
+			st.setString(1, u.getInfo());
+			st.setString(2, u.getSenha());
+			st.setString(3, "medico");
+			st.setInt(4, u.getMedico().getId());
+			
+			st.execute();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
 		}
 	}
 }

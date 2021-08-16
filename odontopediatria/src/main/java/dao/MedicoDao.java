@@ -107,4 +107,21 @@ public class MedicoDao {
 			return;
 		}
 	}
+	
+	public static int getLast() {
+		try {
+			String query = "SELECT max(id) AS ultimo FROM medicos;";
+			PreparedStatement st = con.prepareStatement(query);
+
+			ResultSet rs = st.executeQuery();
+			
+			rs.next();
+			
+			return rs.getInt("ultimo");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+	}
 }

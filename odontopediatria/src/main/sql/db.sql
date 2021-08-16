@@ -27,7 +27,7 @@ rosto int,
 roupa int,
 id_paciente int not null,
 id_avatar int not null primary key auto_increment,
-FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
+FOREIGN KEY (id_paciente) REFERENCES pacientes(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS avaliacoes (
@@ -36,8 +36,8 @@ PacienteID int, MedicoID int,
 expressoes VARCHAR(255), 
 data DATE, 
 ansiedade int, 
-FOREIGN KEY (PacienteID) REFERENCES pacientes(id),
-FOREIGN KEY (MedicoID) REFERENCES medicos(id)
+FOREIGN KEY (PacienteID) REFERENCES pacientes(id) ON DELETE CASCADE,
+FOREIGN KEY (MedicoID) REFERENCES medicos(id) ON DELETE CASCADE
 );
 
 CREATE TABLE usuarios (
@@ -45,7 +45,8 @@ CREATE TABLE usuarios (
 	senha VARCHAR(255) NOT NULL,
 	tipo VARCHAR(255) NOT NULL,
 	id_medico INT,
-	FOREIGN KEY (id_medico) REFERENCES medicos(id)
+	FOREIGN KEY (id_medico) REFERENCES medicos(id) ON DELETE CASCADE
 )
 	
+
 

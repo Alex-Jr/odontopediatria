@@ -23,6 +23,9 @@
 		<label for="crm">Crm : </label>
 		<input type="text" name="crm" id="crm"/> <br>
 		
+		<label for="senha">Senha </label>
+		<input type="password" name="senha" id="senha"/> <br>
+		
 		<input type="submit"/>
 	</form>
 	</div>

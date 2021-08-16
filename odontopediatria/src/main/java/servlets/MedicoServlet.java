@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 import beans.Medico;
-import beans.Paciente;
+import beans.Usuario;
 import dao.MedicoDao;
-import dao.PacienteDao;
+import dao.UsuarioDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -43,10 +43,19 @@ public class MedicoServlet extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		String crm = request.getParameter("crm");
+		String senha = request.getParameter("senha");
 		
 		Medico m = new Medico(0, nome, crm);
 		
 		MedicoDao.create(m);
+		
+		Usuario u = new Usuario();
+		m.setId(MedicoDao.getLast());
+		u.setInfo(crm);
+		u.setSenha(senha);
+		u.setMedico(m);
+		
+		UsuarioDao.create(u);
 		
 		response.sendRedirect(request.getContextPath() + "/views/medicos/index.jsp");
 	}

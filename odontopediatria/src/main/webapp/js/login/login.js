@@ -7,6 +7,11 @@ function entrar(naguentomais) {
 				case 200:
 				//tipo=admin,nome=Pedro raposo,crm=00,id=1
 				const params = this.responseText.split(",");
+
+				if(this.responseText.length == 0) {
+					alert("Usuario ou senha errados");		
+					return;	
+				}
 				
 				for(let i = 0; i < params.length; i++) {
 					const param = params[i].split("=");
