@@ -116,7 +116,7 @@ public class AvatarDao {
 	
 	public static boolean create(Avatar  a) {
 		try {
-			String query = "INSERT INTO odontopediatria.avatares"
+			String query = "INSERT INTO avatares"
 					+ "(cor_da_pele, olho, cor_do_olho, sobrancelha, nariz, orelha, boca, cabelo, rosto, roupa, id_paciente)"
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 					

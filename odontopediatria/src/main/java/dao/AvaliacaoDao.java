@@ -44,7 +44,7 @@ public class AvaliacaoDao {
 	
 	public static ArrayList<Avaliacao> list(int id){
 		try {
-			String query = "SELECT * FROM Avaliacoes WHERE PacienteID = ?";
+			String query = "SELECT * FROM avaliacoes WHERE PacienteID = ?";
 			Connection con = ConexaoMySQL.get();
 			
 			PreparedStatement st = con.prepareStatement(query);
