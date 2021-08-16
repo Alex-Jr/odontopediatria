@@ -11,7 +11,6 @@ import beans.Usuario;
 import database.ConexaoMySQL;
 
 public class UsuarioDao {
-	private static Connection con = ConexaoMySQL.get();
 	
 	public static Usuario get(Usuario u) {
 		try {
@@ -19,7 +18,7 @@ public class UsuarioDao {
 					+ " INNER JOIN medicos"
 					+ " ON medicos.id = usuarios.id_medico"
 					+ " WHERE login = ? AND senha = ?;";
-
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, u.getInfo());
 			st.setString(2, u.getSenha());
@@ -54,7 +53,7 @@ public class UsuarioDao {
 			String query = "INSERT INTO usuarios"
 					+ "(login, senha, tipo, id_medico)"
 					+ "VALUES(?, ?, ?, ?);";
-					
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 
 			st.setString(1, u.getInfo());

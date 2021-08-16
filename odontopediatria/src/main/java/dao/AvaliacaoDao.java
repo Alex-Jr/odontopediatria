@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLNonTransientConnectionException;
 import java.util.ArrayList;
 
 import beans.Paciente;
@@ -17,15 +18,16 @@ import beans.Avaliacao;
 import database.ConexaoMySQL;
 
 public class AvaliacaoDao {
-	private static Connection con = ConexaoMySQL.get();
-
 	public static void create(Avaliacao a) {
 		try {
 			String query = "INSERT INTO avaliacoes"
 					+ "(PacienteID, MedicoID, expressoes, `data`, ansiedade)"
 					+ "VALUES(?, ?, ?, ?, ?);";
 			
+			Connection con = ConexaoMySQL.get();
+			
 			PreparedStatement st = con.prepareStatement(query);
+
 			st.setInt(1, a.getPaciente().getId());
 			st.setInt(2, a.getMedico().getId());
 			st.setString(3, a.getExpressoes());
@@ -33,7 +35,7 @@ public class AvaliacaoDao {
 			st.setInt(5, a.getAnsiedade());
 			
 			st.execute();
-		} catch (SQLException e) {
+		}  catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;
@@ -43,6 +45,8 @@ public class AvaliacaoDao {
 	public static ArrayList<Avaliacao> list(int id){
 		try {
 			String query = "SELECT * FROM Avaliacoes WHERE PacienteID = ?";
+			Connection con = ConexaoMySQL.get();
+			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, id);
 			

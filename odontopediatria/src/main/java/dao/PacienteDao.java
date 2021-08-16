@@ -12,11 +12,10 @@ import beans.Paciente;
 import database.ConexaoMySQL;
 
 public class PacienteDao {
-	private static Connection con = ConexaoMySQL.get();
-	
 	public static ArrayList<Paciente> list() {
 		try {
 			String query = "select * from pacientes";
+			Connection con = ConexaoMySQL.get();
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			
@@ -43,6 +42,7 @@ public class PacienteDao {
 	public static void create(Paciente p) {
 		try {
 			String query = "INSERT INTO pacientes (nome, sexo, dataNasc, responsavel, telefone_responsavel) values (?, ?, ?, ?, ?)";
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, p.getNome());
 			st.setString(2, p.getSexo());
@@ -61,6 +61,7 @@ public class PacienteDao {
 	public static Paciente get(int id) {
 		try {
 			String query = "SELECT * FROM pacientes WHERE id = ?";
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, id);
 			
@@ -90,7 +91,7 @@ public class PacienteDao {
 					+ "WHERE id = ?";
 			
 			Paciente old = PacienteDao.get(p.getId());
-
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, p.getNome() != null ? p.getNome() : old.getNome());
 			st.setString(2, p.getSexo() != null ? p.getSexo() : old.getSexo());
@@ -109,7 +110,7 @@ public class PacienteDao {
 	public static void delete(Paciente p) {
 		try {
 			String query = "DELETE FROM pacientes WHERE id = ?";
-			
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, p.getId());
 			st.execute();

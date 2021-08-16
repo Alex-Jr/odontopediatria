@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import beans.Avatar;
 import database.ConexaoMySQL;
 
-public class AvatarDao {
-	private static Connection con = ConexaoMySQL.get();
-	
+public class AvatarDao {	
 	public static ArrayList<Avatar> list() {
 		try {
 			String query = "SELECT * FROM avatares"
 					+ "RIGHT JOIN paciente"
 					+ "ON avatar.id_paciente = paciente.id;";
+			Connection con = ConexaoMySQL.get();
+			
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			
@@ -47,6 +47,8 @@ public class AvatarDao {
 	public static Avatar get(int id) {
 		try {
 			String query = "SELECT * FROM avatares WHERE id_avatar = ?;";
+			Connection con = ConexaoMySQL.get();
+			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, id);
 			
@@ -80,6 +82,8 @@ public class AvatarDao {
 	public static Avatar getByPacienteId(int id) {
 		try {
 			String query = "SELECT * FROM avatares WHERE id_paciente = ?;";
+			Connection con = ConexaoMySQL.get();
+
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, id);
 			
@@ -116,6 +120,8 @@ public class AvatarDao {
 					+ "(cor_da_pele, olho, cor_do_olho, sobrancelha, nariz, orelha, boca, cabelo, rosto, roupa, id_paciente)"
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 					
+			Connection con = ConexaoMySQL.get();
+			
 			PreparedStatement st = con.prepareStatement(query);
 
 			st.setString(1, a.getCorPele());
@@ -175,6 +181,8 @@ public class AvatarDao {
 	public static void delete(int id) {
 		try {
 			String query = "DELETE FROM avatares WHERE id_avatar=?";
+			Connection con = ConexaoMySQL.get();
+			
 			PreparedStatement st = con.prepareStatement(query);
 	
 			st.setInt(1, id);
