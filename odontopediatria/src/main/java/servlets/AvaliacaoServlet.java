@@ -54,7 +54,9 @@ public class AvaliacaoServlet extends HttpServlet {
 		
 		AvaliacaoDao.create(a);
 		
-		response.sendRedirect(request.getContextPath() + "/views/pacientes/index.jsp");
+		
+		response.sendRedirect(request.getContextPath() + "/views/avaliacoes/finish.jsp?ansiedade=" + a.getAnsiedade() + 
+				"&pacienteID=" + p.getId() + "&medicoID=" + m.getId());
 	}
 
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
