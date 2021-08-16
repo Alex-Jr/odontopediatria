@@ -11,11 +11,11 @@ import beans.Medico;
 import database.ConexaoMySQL;
 
 public class MedicoDao {
-	private static Connection con = ConexaoMySQL.get();
 	
 	public static ArrayList<Medico> list() {
 		try {
 			String query = "select * from medicos";
+			Connection con = ConexaoMySQL.get();
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			
@@ -40,6 +40,7 @@ public class MedicoDao {
 	public static Medico get(int id) {
 		try {
 			String query = "SELECT * FROM medicos WHERE id = ?";
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, id);
 			
@@ -62,6 +63,7 @@ public class MedicoDao {
 	public static void create(Medico m) {
 		try {
 			String query = "INSERT INTO medicos (nome, crm) values (?, ?)";
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, m.getNome());
 			st.setString(2, m.getCrm());
@@ -81,7 +83,7 @@ public class MedicoDao {
 					+ "WHERE id = ?";
 			
 			Medico old = MedicoDao.get(m.getId());
-
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, m.getNome() != null ? m.getNome() : old.getNome());
 			st.setString(2, m.getCrm() != null ? m.getCrm() : old.getCrm());
@@ -97,6 +99,7 @@ public class MedicoDao {
 	public static void delete(Medico m) {
 		try {
 			String query = "DELETE FROM medicos WHERE id= ?";
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 	
 			st.setInt(1, m.getId());
@@ -111,6 +114,7 @@ public class MedicoDao {
 	public static int getLast() {
 		try {
 			String query = "SELECT max(id) AS ultimo FROM medicos;";
+			Connection con = ConexaoMySQL.get();
 			PreparedStatement st = con.prepareStatement(query);
 
 			ResultSet rs = st.executeQuery();
