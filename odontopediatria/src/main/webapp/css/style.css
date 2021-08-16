@@ -12,6 +12,14 @@ body {
 	height: 50px;
 	color: #fff;
 	font-size: 36px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.voltar{
+	color: white;
+	text-decoration: none;
+	padding-right: 10px;
 }
 
 .botaopadrao {

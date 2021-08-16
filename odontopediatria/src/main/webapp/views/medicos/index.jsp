@@ -17,6 +17,16 @@
 </head>
 <body>
  	<% ArrayList<Medico> medicos = MedicoDao.list(); %>
+ 	
+ 	<div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	
+
+ 	
 	<div class="container">
 
     <a href="./new.jsp"><button type="button" value="">Cadastrar Médico</button></a>
@@ -36,7 +46,6 @@
       <td> <%= m.getCrm() %> </td>
       <td>
         <a href="./update.jsp?id=<%=m.getId()%>"><button type="button">Editar</button></a>
-        <button type="button">Avaliar</button>
         <button type="button" onclick="deletar(<%= m.getId() %>)">Excluir</button>
       </td>
     </tr>

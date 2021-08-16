@@ -22,6 +22,14 @@
 <body>
  <% ArrayList<Paciente> pacientes = PacienteDao.list(); %>
  
+ <div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	
+ 
 <div class="container">
   <a href="./new.jsp"><button type="button" value="">Cadastrar Paciente</button></a>
   <h1>Lista de Pacientes</h1>

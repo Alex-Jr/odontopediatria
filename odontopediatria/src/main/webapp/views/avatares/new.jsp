@@ -17,7 +17,13 @@
 		String id = request.getParameter("idPaciente");
 		Paciente p = PacienteDao.get(Integer.parseInt(id));
 	%>
-	<div class="header">Clínica Sorriso do amanhã</div>
+	<div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	
 
 	<div class="container">
 		<h2>Criar - Avatar</h2>

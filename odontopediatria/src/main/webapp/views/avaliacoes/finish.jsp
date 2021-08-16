@@ -15,6 +15,13 @@
 <link rel="stylesheet" href="../../css/avaliacoes/finish.css"/>
 </head>
 <body>
+<div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	
 	<div class="container">
 		<% String ansiedade = request.getParameter("ansiedade"); %>
 		

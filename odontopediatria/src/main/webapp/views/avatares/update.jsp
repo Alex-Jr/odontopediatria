@@ -15,7 +15,13 @@
 <title>Editar avatar</title>
 </head>
 <body>
-		<div class="header">Clínica Sorriso do amanhã</div>
+		<div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	
 	<% 
 		String id = request.getParameter("idAvatar");
 		Avatar avatar = AvatarDao.get(Integer.parseInt(id));

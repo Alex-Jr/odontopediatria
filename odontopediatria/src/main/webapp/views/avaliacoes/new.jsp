@@ -25,6 +25,13 @@
 		Paciente paciente = PacienteDao.get(Integer.parseInt(idPaciente));
 		Avatar avatar = AvatarDao.getByPacienteId(paciente.getId());
 	%>
+	<div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	
 	<div 
 		id="dados" 
 		data-id-avatar=<%=avatar.getId() %>

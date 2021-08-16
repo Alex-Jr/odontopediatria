@@ -10,7 +10,13 @@
 </head>
 <body class="letras">
 
-  <div class="header"> Sorriso do amanhã </div>  
+  <div class="header">
+ 	
+ 		<div>Clínica sorriso do amanhã</div>
+ 	
+ 		<a href="/odontopediatria" class="voltar">Sair</a>	
+ 	</div>
+ 	  
    
     
     <form action="/odontopediatria/pacientes" method="POST" id="cadastro" class="container">
