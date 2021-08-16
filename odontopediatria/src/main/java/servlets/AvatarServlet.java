@@ -57,7 +57,7 @@ public class AvatarServlet extends HttpServlet {
 		
 		AvatarDao.create(a);
 		
-		response.sendRedirect(request.getContextPath() + "/views/avatares/index.jsp");
+		response.sendRedirect(request.getContextPath() + "/views/pacientes/index.jsp");
 	}
 
 	/**

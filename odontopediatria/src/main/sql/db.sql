@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS pacientes(
 nome varchar(100),
 sexo char(1),
 responsavel varchar(100),
+telefone_responsavel varchar(11),
 dataNasc date,
 id int not null primary key auto_increment 
 );

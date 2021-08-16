@@ -4,6 +4,7 @@
 <%@page import="dao.AvatarDao"%>
 <%@page import="dao.PacienteDao"%>
 <%@page import="beans.Paciente"%>
+<%@page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -44,10 +45,11 @@
 	>
 	</div>
 	<div class="header">Clínica sorriso do amanhã</div>
-	 
+	
 	<div class="container">
 		<h2>Nova Avaliação</h2>
 		 <div class="aaaaa">
+			
 
             <div id="avatar"></div>
             
@@ -63,11 +65,16 @@
         </div>
 	</div>
 	
+	<script>
+		var f = document.getElementById('selectmedico').selectedIndex;
+		console.log(f);
+	</script>
 	
 	<form action="/odontopediatria/avaliacoes" method="POST" id="avaliacao"> <!-- Method PUT with JS -->
 		<input hidden="true" type="text" name="idPaciente" value="<%=paciente.getId()%>"/>
 		<input hidden="true" type="text" name="idMedico" value="<%=medico.getId()%>"/>
 		<input hidden="true" type="text" name="expressoes" value="0" id="expressoes"/>
 	</form>
+	
 </body>
 </html>

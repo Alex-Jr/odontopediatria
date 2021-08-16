@@ -1,9 +1,12 @@
 <%@page import="dao.AvatarDao"%>
 <%@page import="beans.Avatar"%>
 <%@page import="java.time.LocalDate"%>
+
+
 <%@page import="dao.PacienteDao"%>
 
 <%@page import="beans.Paciente"%>
+<%@page import="beans.Medico"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -63,8 +66,10 @@
       </td>
     </tr>
     <% } %>
+    
 
   </table>
+  
 </div>
 </body>
 </html>

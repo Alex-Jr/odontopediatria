@@ -1,6 +1,7 @@
 package beans;
 
 import java.util.Date;
+import java.util.Random;
 
 public class Avaliacao {
 	private int id;
@@ -59,16 +60,20 @@ public class Avaliacao {
 	public void setExpressoes(String expressoes) {
 		String expreArray[] = expressoes.split("&");
 		
+		Random rand = new Random();
+		
 		int ansiedade = 0;
 		for(int i = 0; i < expreArray.length; i++) {
 			String expre = expreArray[i];
-			if(expre.equals("raiva")) ansiedade += 5;
+			/*if(expre.equals("raiva")) ansiedade += 5;
 			if(expre.equals("triste")) ansiedade += 3;
 			if(expre.equals("chateado")) ansiedade += 1;
 			if(expre.equals("normal")) ansiedade -= 1;
 			if(expre.equals("feliz")) ansiedade -= 3;
-			if(expre.equals("animado")) ansiedade -= 5;
+			if(expre.equals("animado")) ansiedade -= 5;*/
 		}
+		
+		ansiedade = rand.nextInt(10);
 		
 		this.expressoes = expressoes;
 		this.setAnsiedade(ansiedade);
