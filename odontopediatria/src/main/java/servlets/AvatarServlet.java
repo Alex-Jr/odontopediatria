@@ -13,34 +13,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AvatarServlet
- */
 @WebServlet("/avatares")
 public class AvatarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public AvatarServlet() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
 		Avatar a = new Avatar();
 		
 		a.setCorPele(request.getParameter("corPele"));
@@ -60,11 +37,7 @@ public class AvatarServlet extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/views/pacientes/index.jsp");
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		BufferedReader bfr  = request.getReader(); 
 
 		String params[] = bfr.readLine().split("&");
@@ -93,17 +66,11 @@ public class AvatarServlet extends HttpServlet {
 				p.setId(Integer.parseInt(value));
 				a.setPaciente(p);
 			}
-			// coloquei pq é interessante fazer a verificação avatar x paciente 
 		}
-
 		AvatarDao.update(a);
 	}
 
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		BufferedReader bfr  = request.getReader(); 
 		
 		String params = bfr.readLine();	
